@@ -1,0 +1,35 @@
+# Maven
+/target/
+/.mvn/
+/.mvnw
+/mvnw.cmd
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# MacOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment / credentials
+application-*.yml
+application-*.properties
+.env
+
+# Others
+*.tmp
+*.bak
