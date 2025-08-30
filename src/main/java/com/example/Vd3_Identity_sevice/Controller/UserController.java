@@ -20,20 +20,34 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
     @PostMapping
-    public User createUser(@RequestBody UserCreationRequest userCreationRequest){
-    return userService.createUser(userCreationRequest);
+    public User createUser(@RequestBody UserCreationRequest userCreationRequest) {
+        return userService.createUser(userCreationRequest);
     }
 
     @GetMapping
-    public List<User> getAllUser(){
-        return  userService.findAll();
+    public List<User> getAllUser() {
+        return userService.findAll();
     }
+
     @GetMapping("/{userID}")
-    public User getUserById(@PathVariable String userID){
+    public User getUserById(@PathVariable String userID) {
         return userService.findById(userID);
     }
+
+    @PutMapping("/{userId}")
+    public User updUserById(
+            @PathVariable String userId,
+            @RequestBody UserCreationRequest userRequest) {
+        return userService.updateUser(userId, userRequest);
+    }
+    @DeleteMapping("/{userId}")
+    public void deleteUserById(@PathVariable String userId){
+         userService.deleteUser(userId);
+    }
+    
 }

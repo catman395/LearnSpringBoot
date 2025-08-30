@@ -33,3 +33,5 @@ application-*.properties
 # Others
 *.tmp
 *.bak
+#application do mac khong cho pass ngan
+application.properties
