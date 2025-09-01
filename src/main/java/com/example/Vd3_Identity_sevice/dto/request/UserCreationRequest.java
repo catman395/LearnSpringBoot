@@ -4,6 +4,8 @@
  */
 package com.example.Vd3_Identity_sevice.dto.request;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 /**
@@ -11,7 +13,9 @@ import java.time.LocalDate;
  * @author dohoainho
  */
 public class UserCreationRequest {
+    @NotNull(message = "user name must be leater1")
     private String username;
+    @Pattern(regexp = "\\d{8}[a-zA-Z]{2}", message = "pass about 8 numbers and 2 letters")
     private String password;
     private String firstname;
     private String lastname;

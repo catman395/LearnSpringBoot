@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import javax.management.RuntimeErrorException;
 
 /**
  *
@@ -37,9 +38,9 @@ public class UserService {
     }
       public User findById(String id) {
         return userRepository.findById(id)
-                .orElse(null);
+               .orElseThrow(() -> new RuntimeException("dont id: "+id+" in system database"));
     }
-      public User updateUser(String id, UserCreationRequest rq) {
+      public User updateUser(String id, UserCreationRequest rq) {         
       return  userRepository.findById(id)
               .map(u -> {
               u.setFirstname(rq.getFirstname());
